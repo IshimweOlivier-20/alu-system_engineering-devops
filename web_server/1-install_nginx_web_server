@@ -1,21 +1,11 @@
 #!/usr/bin/env bash
-# Update package list
-sudo apt update
+# Installs Nginx with the following configurations:
+#+    Listens on port 80.
+#+    Returns a page containing "Holberton School" when queried
+#++    at the root with a curl GET request.
 
-# Install Nginx
-sudo apt install -y nginx
-
-# Start Nginx
-sudo service nginx start
-
-# Enable Nginx to start on boot
-sudo systemctl enable nginx
-
-# Create a custom HTML page
-echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
-
-# Restart Nginx without using systemctl
-sudo service nginx restart
-
-# Allow HTTP traffic through the firewall (if UFW is enabled)
-sudo ufw allow 'Nginx Full'
+apt-get update -y
+apt-get install nginx -y 
+sudo ufw allow 'Nginx HTTP'
+sh -c 'echo "Holberton School" > /var/www/html/index.html'
+service nginx restart
