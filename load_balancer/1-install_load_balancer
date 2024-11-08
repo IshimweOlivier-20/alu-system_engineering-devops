@@ -42,9 +42,8 @@ sudo service haproxy restart
 # Check if HAProxy service is running
 sudo systemctl status haproxy
 
-# Output to verify that the names `web-01` and `web-02` are used in the backend configuration
+# Output to verify that the names web-01 and web-02 are used in the backend configuration
 echo "Checking HAProxy configuration..."
 curl -Is http://localhost | grep X-Served-By
 
 echo "HAProxy installation and configuration complete. Traffic is now load balanced between web-01 and web-02."
-
