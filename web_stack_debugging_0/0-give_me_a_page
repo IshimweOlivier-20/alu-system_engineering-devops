@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Fixing the issues that arrises from using docker
 
-sudo apt-get update -y
-sudo apt-get install -y apache2
+sudo apt-get update
+sudo apt-get install apache2
 sudo /etc/init.d/apache2 start
 echo "Hello Holberton" | sudo tee /var/www/html/index.html
 sudo service apache2 restart
